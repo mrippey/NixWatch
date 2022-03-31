@@ -14,7 +14,7 @@
 
 - https://www.sandflysecurity.com/blog/compromised-linux-cheat-sheet/
 
-## Usage
+## Example
 
 Check folder of your choice for suspicious file extensions
 ```
@@ -26,3 +26,4 @@ Check folder of your choice for suspicious file extensions
 File: 123.js with hash: 0bb96c30652b8aebe4ded637b8291a5d07fb1797e7140553202a885229c79963 found!
 Upload files to VirusTotal? (Y)es or (N)o
 ```
+
