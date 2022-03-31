@@ -27,3 +27,6 @@ File: 123.js with hash: 0bb96c30652b8aebe4ded637b8291a5d07fb1797e7140553202a8852
 Upload files to VirusTotal? (Y)es or (N)o
 ```
 
+## TODO
+
+Convert this script into a Jupyter notebook and add capability to SSH to suspect Linux system
