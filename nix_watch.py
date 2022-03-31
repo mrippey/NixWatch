@@ -19,6 +19,9 @@ VT_API = 'your VT API Key'
 
 
 def send_files_vt(files):
+    '''
+    setup VT API and upload of file hashes
+    '''
     
     vt_client = VirusTotalPublicApi(VT_API)
     results = vt_client.get_file_report(files)
@@ -30,6 +33,9 @@ def send_files_vt(files):
 
 
 def check_folder_status(targ_pth):
+    '''
+    ensure specified path is a directory and not empty, otherwise exit
+    '''
 
     if targ_pth.is_dir() and any(Path(targ_pth).iterdir()):
         print('[*] Folder not empty, prcoeeding...\n')
@@ -39,6 +45,10 @@ def check_folder_status(targ_pth):
 
 
 def hash_files_send_to_vt(targ_pth):
+    '''
+    SHA256 hash files and provide user option to upload each file to VT
+    '''
+    
     print()
     print('[*] If a file extension match is found, file is sent to VirusTotal. Exits if none...\n')
 
@@ -61,6 +71,10 @@ def hash_files_send_to_vt(targ_pth):
 
 
 def last_mod(targ_pth):
+    '''
+    find file last modified within 1 day
+    '''
+    
     print('[*] Searching for most recently created/modified files...\n')
     try:
        
@@ -73,13 +87,21 @@ def last_mod(targ_pth):
 
 
 def processes_run_from_dir(targ_pth):
+    '''
+    locate processes running from a user specified directory
+    '''
+    
     print(f'Finding processes running from {targ_pth}...\n')
     cmd = f'ls -alR /proc/*/cwd 2> /dev/null | grep {targ_pth}'
     os.system(cmd)
     
    
 def find_execs_in_folder(targ_pth):
-    print(f'Finding processes running from {targ_pth}...\n')
+    '''
+    locate executable files in a folder they may not be expected to be in
+    '''
+    
+    print(f'Finding executables running from {targ_pth}...\n')
     
     cmd = " sudo find %s  -type f -exec file -p '{}' \; | grep ELF " % targ_pth
    
@@ -87,6 +109,10 @@ def find_execs_in_folder(targ_pth):
 
 
 def list_hidden_dirs(targ_pth):
+    '''
+    print a list of hidden directories within a given path
+    '''
+    
     cmd = f"sudo find {targ_pth} -type d -name '.*'"
     os.system(cmd)
     
